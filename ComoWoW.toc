@@ -1,6 +1,6 @@
 ## Interface: 90005
-## Version: 1.0.0
-## Title: ArenaNumbers
+## Version: 1.1.0
+## Title: ComoWoW
 ## Notes: My first addon
 ## Author: comographer (https://github.com/comographer)
 

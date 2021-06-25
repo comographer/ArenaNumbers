@@ -4,5 +4,5 @@
 ## Notes: My first addon
 ## Author: comographer (https://github.com/comographer)
 
-ArenaNumbers.lua
-ArenaNumbers.xml
+ComoWoW.lua
+ComoWoW.xml

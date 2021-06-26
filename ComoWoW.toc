@@ -2,6 +2,7 @@
 ## Version: 1.2.0
 ## Title: ComoWoW
 ## Notes: Como WoW Addon for UI enhancement
+## SavedVariablesPerCharacter: HideHotKeys_HK_Hidden, HideHotKeys_MN_Hidden
 ## Author: comographer (https://github.com/comographer)
 
 ComoWoW.lua

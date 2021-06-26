@@ -1,7 +1,7 @@
 ## Interface: 90005
-## Version: 1.1.0
+## Version: 1.2.0
 ## Title: ComoWoW
-## Notes: My first addon
+## Notes: Como WoW Addon for UI enhancement
 ## Author: comographer (https://github.com/comographer)
 
 ComoWoW.lua

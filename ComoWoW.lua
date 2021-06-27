@@ -227,10 +227,10 @@ HideHotKeys_Frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 hooksecurefunc(ActionBarActionButtonMixin, "UpdateHotkeys", HideHotKeys_ActionButton_UpdateHotkeys)
 hooksecurefunc(ActionBarActionButtonMixin, "Update", HideHotKeys_ActionButton_Update)
 
-SLASH_HIDEHOTKEYSHK1 = "/hhk"
+SLASH_HIDEHOTKEYSHK1 = "/hk"
 SlashCmdList["HIDEHOTKEYSHK"] = HideHotKeys_HK_Slash
 
-SLASH_HIDEHOTKEYSMN1 = "/hmn"
+SLASH_HIDEHOTKEYSMN1 = "/hm"
 SlashCmdList["HIDEHOTKEYSMN"] = HideHotKeys_MN_Slash
 -- code for HideHotKeys finish
 

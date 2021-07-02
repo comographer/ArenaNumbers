@@ -27,7 +27,7 @@ SlashCmdList["EA"] = function()
 		f = CreateFrame('Frame', nil, UIParent) 
 		f:SetAllPoints(UIParent)
 		local w = GetScreenWidth() / 64
-    -- need to do 84 for 21:9 additional ratio to be found 21:9, 16:9, 10:9, etc.
+    -- need to do 84 for 21:9 additional ratio to be found 21:9, 16:9, 10:9
 		local h = GetScreenHeight() / 36
 		for i = 0, 64 do
 			local t = f:CreateTexture(nil, 'BACKGROUND')

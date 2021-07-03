@@ -1,4 +1,4 @@
-## Interface: 91000
+## Interface: 90100
 ## Version: 1.2.0
 ## Title: ComoWoW
 ## Notes: Como WoW Addon for UI enhancement

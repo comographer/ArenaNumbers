@@ -1,4 +1,4 @@
--- code for ArenaNumbers start
+-- ArenaNumbers start
 local U=UnitIsUnit
 
 hooksecurefunc("CompactUnitFrame_UpdateName", function(F)
@@ -12,9 +12,9 @@ hooksecurefunc("CompactUnitFrame_UpdateName", function(F)
         end 
     end 
 end)
--- code for ArenaNumbers finish
+-- ArenaNumbers finish
 
--- code for Align start
+-- Align start
 SLASH_EA1 = "/align"
 
 local f
@@ -51,9 +51,9 @@ SlashCmdList["EA"] = function()
 		end	
 	end
 end
--- code for Align finish
+-- Align finish
 
--- code for HideHotKeys start
+-- HideHotKeys start
 local HideHotKeys_Frame = CreateFrame("Frame")
 
 -- default enabled
@@ -233,9 +233,9 @@ SlashCmdList["HIDEHOTKEYSHK"] = HideHotKeys_HK_Slash
 
 SLASH_HIDEHOTKEYSMN1 = "/hm"
 SlashCmdList["HIDEHOTKEYSMN"] = HideHotKeys_MN_Slash
--- code for HideHotKeys finish
+-- HideHotKeys finish
 
--- code for HideBagsBar start
+-- HideBagsBar start
 local t = {
   "MicroButtonAndBagsBar",
 }
@@ -258,9 +258,9 @@ for _, v in ipairs(t) do
 	v:SetScript("OnLeave", hideFoo)
 	v:Hide(0)
 end
--- code for HideBagsBar finish
+-- HideBagsBar finish
 
--- code for HideMicroMenu start
+-- HideMicroMenu start
 local ignore
 
 local function setAlpha(b, a)
@@ -297,4 +297,4 @@ for _, v in ipairs(MICRO_BUTTONS) do
     v:HookScript("OnLeave", hideFoo)
     v:SetAlpha(0)
 end
--- code for HideMicroMenu finish
+-- HideMicroMenu finish

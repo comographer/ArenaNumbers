@@ -1,15 +1,3 @@
 <Ui>
     <Script>MainMenuBarArtFrame.LeftEndCap:Hide(); MainMenuBarArtFrame.RightEndCap:Hide()</Script>
-    <Frame name="MapCoordsWorldMapFrame" parent="WorldMapFrame" hidden="false" enableMouse="true" toplevel="true">
-        <Layers>
-            <Layer level="ARTWORK">
-                <FontString name="MapCoordsWorldMap" hidden="false" inherits="GameFontNormal" text=""/>
-            </Layer>
-        </Layers>
-        <Scripts>
-            <OnUpdate>
-                MapCoordsWorldMap_OnUpdate()
-            </OnUpdate>
-        </Scripts>
-    </Frame>
 </Ui>

@@ -327,27 +327,19 @@ end
 
 function MapCoordsWorldMap_OnUpdate()
 	local output = ""
-	if (MapCoords2["worldmap cursor"] == true) then
-		local adjustedX, adjustedY = WorldMapFrame:GetNormalizedCursorPosition()	
-	
-		-- Write output
-		if (adjustedX > 0  and adjustedY > 0 and adjustedX <1 and adjustedY <1) then
-            output = MAPCOORDS_SLASH4..shwcrd(adjustedX).." / "..shwcrd(adjustedY)
-        end
-	end
-	if (MapCoords2["worldmap cursor"] == true and MapCoords2["worldmap player"]) then
-        if (output ~= "") then
-            output = output.." - "
-        end
-    end
-	if (MapCoords2["worldmap player"] == true) then
-		local posX, posY = MapPositionToXY("player")
-		if ( posX == 0 and posY == 0 ) then
-            output = output..MAPCOORDS_SLASH5.."n/a"
-		else
-            output = output..MAPCOORDS_SLASH5..shwcrd(posX).." / "..shwcrd(posY)
-        end
-	end
+  local adjustedX, adjustedY = WorldMapFrame:GetNormalizedCursorPosition()	
+  if (adjustedX > 0  and adjustedY > 0 and adjustedX <1 and adjustedY <1) then
+          output = MAPCOORDS_SLASH4..shwcrd(adjustedX).." / "..shwcrd(adjustedY)
+  end
+  if (output ~= "") then
+      output = output.." - "
+  end
+  local posX, posY = MapPositionToXY("player")
+  if ( posX == 0 and posY == 0 ) then
+          output = output..MAPCOORDS_SLASH5.."n/a"
+  else
+          output = output..MAPCOORDS_SLASH5..shwcrd(posX).." / "..shwcrd(posY)
+  end
 
 	if (WorldMapMixin.isMaximized) then
 		MapCoordsWorldMap:SetPoint("CENTER", WorldMapFrame.BorderFrame, "BOTTOM", 0, 10)

@@ -325,5 +325,51 @@ local function MapPositionToXY(arg)
 	return 0, 0
 end
 
+function MapCoordsWorldMap_OnUpdate()
+	local output = ""
+	if (MapCoords2["worldmap cursor"] == true) then
+		local adjustedX, adjustedY = WorldMapFrame:GetNormalizedCursorPosition()	
+	
+		-- Write output
+		if (adjustedX > 0  and adjustedY > 0 and adjustedX <1 and adjustedY <1) then
+            output = MAPCOORDS_SLASH4..shwcrd(adjustedX).." / "..shwcrd(adjustedY)
+        end
+	end
+	if (MapCoords2["worldmap cursor"] == true and MapCoords2["worldmap player"]) then
+        if (output ~= "") then
+            output = output.." - "
+        end
+    end
+	if (MapCoords2["worldmap player"] == true) then
+		local posX, posY = MapPositionToXY("player")
+		if ( posX == 0 and posY == 0 ) then
+            output = output..MAPCOORDS_SLASH5.."n/a"
+		else
+            output = output..MAPCOORDS_SLASH5..shwcrd(posX).." / "..shwcrd(posY)
+        end
+	end
 
+	if (WorldMapMixin.isMaximized) then
+		MapCoordsWorldMap:SetPoint("CENTER", WorldMapFrame.BorderFrame, "BOTTOM", 0, 10)
+		MapCoordsWorldMap:SetTextColor(GameFontNormal:GetTextColor())
+	elseif (_G.WOW_PROJECT_ID == _G.WOW_PROJECT_CLASSIC) then
+		MapCoordsWorldMap:SetPoint("CENTER", WorldMapFrame.BorderFrame, "BOTTOM", 0, 15)
+		MapCoordsWorldMap:SetTextColor(GameFontNormal:GetTextColor())
+	else
+        local offset = 0
+        if (IsAddOnLoaded("WorldQuestTracker") ~= nil) then
+            if (WorldQuestTrackerDoubleTapFrame ~= nil and WorldQuestTrackerDoubleTapFrame:IsVisible()) then
+                offset = 12
+            end
+        end
+		if(QuestMapFrame:IsVisible()) then
+			MapCoordsWorldMap:SetPoint("CENTER", WorldMapFrame.BorderFrame, "BOTTOM", -145, 10 + offset)
+		else
+			MapCoordsWorldMap:SetPoint("CENTER", WorldMapFrame.BorderFrame, "BOTTOM", 0, 10 + offset)
+		end
+		MapCoordsWorldMap:SetTextColor(1, 1, 1, 1)
+	end
+	MapCoordsWorldMapFrame:SetFrameStrata("FULLSCREEN_DIALOG")
+	MapCoordsWorldMap:SetText(output)
+end
 -- Coordinate finish

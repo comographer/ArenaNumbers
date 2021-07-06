@@ -298,3 +298,32 @@ for _, v in ipairs(MICRO_BUTTONS) do
     v:SetAlpha(0)
 end
 -- HideMicroMenu finish
+
+-- Coordinate start
+function round(float)
+	return floor(float+0.5)
+end
+
+function shwcrd(num)
+    if num == nil then
+        return 0
+	else
+		return format("%1.1f", round(num * 1000) / 10)
+	end
+end
+
+local function MapPositionToXY(arg)
+	local mapID = C_Map.GetBestMapForUnit(arg)
+	
+	if mapID and arg then
+		local mapPos = C_Map.GetPlayerMapPosition(mapID, arg)
+		if mapPos then
+			return mapPos:GetXY()
+		end
+	end
+	
+	return 0, 0
+end
+
+
+-- Coordinate finish

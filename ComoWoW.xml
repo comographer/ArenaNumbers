@@ -1,3 +1,4 @@
 <Ui>
     <Script>MainMenuBarArtFrame.LeftEndCap:Hide(); MainMenuBarArtFrame.RightEndCap:Hide()</Script>
+    <Script File="ComoWoW.lua"/>
 </Ui>

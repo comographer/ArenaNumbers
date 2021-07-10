@@ -1,4 +1,4 @@
--- ArenaNumbers start
+-- code for arena number start
 local U=UnitIsUnit
 
 hooksecurefunc("CompactUnitFrame_UpdateName", function(F)
@@ -12,9 +12,9 @@ hooksecurefunc("CompactUnitFrame_UpdateName", function(F)
         end 
     end 
 end)
--- ArenaNumbers finish
+-- code for arena number finish
 
--- Align start
+-- code for align start
 SLASH_EA1 = "/align"
 
 local f
@@ -27,7 +27,6 @@ SlashCmdList["EA"] = function()
 		f = CreateFrame('Frame', nil, UIParent) 
 		f:SetAllPoints(UIParent)
 		local w = GetScreenWidth() / 64
-    -- need to do 84 for 21:9 additional ratio to be found 21:9, 16:9, 10:9
 		local h = GetScreenHeight() / 36
 		for i = 0, 64 do
 			local t = f:CreateTexture(nil, 'BACKGROUND')
@@ -51,38 +50,38 @@ SlashCmdList["EA"] = function()
 		end	
 	end
 end
--- Align finish
+-- code for align finish
 
--- HotKeys start
-local HotKeys_Frame = CreateFrame("Frame")
+-- code for HideHotKeys start
+local HideHotKeys_Frame = CreateFrame("Frame")
 
 -- default enabled
-if (HotKeys_HK_Hidden == nil) then
-  HotKeys_HK_Hidden = true
+if (HideHotKeys_HK_Hidden == nil) then
+  HideHotKeys_HK_Hidden = true
 end
 
 -- default disabled
-if (HotKeys_MN_Hidden == nil) then
-  HotKeys_MN_Hidden = false
+if (HideHotKeys_MN_Hidden == nil) then
+  HideHotKeys_MN_Hidden = false
 end
 
 
-function HotKeys_EventHandler(self, event)
+function HideHotKeys_EventHandler(self, event)
   if (event == "PLAYER_ENTERING_WORLD") then
-    HotKeys_Update()
+    HideHotKeys_Update()
   end
 end
 
 -- the default ActionButton_UpdateHotkeys function will reget the first hotkey associated with a button
 -- and show/hide if there is a bind or not, so we will rehide it if neccesary after the default function runs
-function HotKeys_ActionButton_UpdateHotkeys(self, actionButtonType)
+function HideHotKeys_ActionButton_UpdateHotkeys(self, actionButtonType)
   local hkf = self.HotKey --_G[self:GetName().."HotKey"]
   
   if (hkf) then
-    if (HotKeys_HK_Hidden and hkf:IsShown()) then
+    if (HideHotKeys_HK_Hidden and hkf:IsShown()) then
       hkf:Hide()
       
-    elseif (not HotKeys_HK_Hidden and not hkf:IsShown()) then
+    elseif (not HideHotKeys_HK_Hidden and not hkf:IsShown()) then
       local action = self.action
       
       if action and HasAction(action) then
@@ -101,13 +100,13 @@ end
 
 -- same with macro names, except i don't see any example of it actually being hidden/shown in the default UI
 -- the macro name frame only has its text property changed to a space to "hide" it, but we will do this anyway
-function HotKeys_ActionButton_Update(self)
+function HideHotKeys_ActionButton_Update(self)
   local mnf = self.Name --_G[self:GetName().."Name"]
   
   if (mnf) then
-    if (HotKeys_MN_Hidden and mnf:IsShown()) then
+    if (HideHotKeys_MN_Hidden and mnf:IsShown()) then
       mnf:Hide()
-    elseif (not HotKeys_MN_Hidden and not mnf:IsShown()) then
+    elseif (not HideHotKeys_MN_Hidden and not mnf:IsShown()) then
       mnf:Show()
     end
   end
@@ -115,86 +114,86 @@ end
 
 
 --rehides if they should be hidden, called whenever the UI reshows them
-function HotKeys_Update()
-    if (HotKeys_HK_Hidden) then
-      HotKeys_HK_HideAll()
+function HideHotKeys_Update()
+    if (HideHotKeys_HK_Hidden) then
+      HideHotKeys_HK_HideAll()
     else
-      HotKeys_HK_ShowAll()
+      HideHotKeys_HK_ShowAll()
     end
-    if (HotKeys_MN_Hidden) then
-      HotKeys_MN_HideAll()
+    if (HideHotKeys_MN_Hidden) then
+      HideHotKeys_MN_HideAll()
     else
-      HotKeys_MN_ShowAll()
+      HideHotKeys_MN_ShowAll()
     end
 end
 
 
-function HotKeys_HK_HideAll()
-  HotKeys_HideBar("Action", "HotKey")
-  HotKeys_HideBar("BonusAction", "HotKey")
-  HotKeys_HideBar("PetAction", "HotKey")
-  HotKeys_HideBar("MultiBarBottomLeft", "HotKey")
-  HotKeys_HideBar("MultiBarBottomRight", "HotKey")
-  HotKeys_HideBar("MultiBarRight", "HotKey")
-  HotKeys_HideBar("MultiBarLeft", "HotKey")
-  HotKeys_HK_Hidden = true
+function HideHotKeys_HK_HideAll()
+  HideHotKeys_HideBar("Action", "HotKey")
+  HideHotKeys_HideBar("BonusAction", "HotKey")
+  HideHotKeys_HideBar("PetAction", "HotKey")
+  HideHotKeys_HideBar("MultiBarBottomLeft", "HotKey")
+  HideHotKeys_HideBar("MultiBarBottomRight", "HotKey")
+  HideHotKeys_HideBar("MultiBarRight", "HotKey")
+  HideHotKeys_HideBar("MultiBarLeft", "HotKey")
+  HideHotKeys_HK_Hidden = true
 end
 
 
-function HotKeys_HK_ShowAll()
-  HotKeys_ShowBar("Action", "HotKey")
-  HotKeys_ShowBar("BonusAction", "HotKey")
-  HotKeys_ShowBar("PetAction", "HotKey")
-  HotKeys_ShowBar("MultiBarBottomLeft", "HotKey")
-  HotKeys_ShowBar("MultiBarBottomRight", "HotKey")
-  HotKeys_ShowBar("MultiBarRight", "HotKey")
-  HotKeys_ShowBar("MultiBarLeft", "HotKey")
-  HotKeys_HK_Hidden = false
+function HideHotKeys_HK_ShowAll()
+  HideHotKeys_ShowBar("Action", "HotKey")
+  HideHotKeys_ShowBar("BonusAction", "HotKey")
+  HideHotKeys_ShowBar("PetAction", "HotKey")
+  HideHotKeys_ShowBar("MultiBarBottomLeft", "HotKey")
+  HideHotKeys_ShowBar("MultiBarBottomRight", "HotKey")
+  HideHotKeys_ShowBar("MultiBarRight", "HotKey")
+  HideHotKeys_ShowBar("MultiBarLeft", "HotKey")
+  HideHotKeys_HK_Hidden = false
 end
 
 
-function HotKeys_HK_Slash()
-  if (HotKeys_HK_Hidden) then
-    HotKeys_HK_ShowAll()
+function HideHotKeys_HK_Slash()
+  if (HideHotKeys_HK_Hidden) then
+    HideHotKeys_HK_ShowAll()
   else
-    HotKeys_HK_HideAll()
+    HideHotKeys_HK_HideAll()
   end
 end
 
 
-function HotKeys_MN_HideAll()
-  HotKeys_HideBar("Action", "Name")
-  HotKeys_HideBar("BonusAction", "Name")
-  HotKeys_HideBar("MultiBarBottomLeft", "Name")
-  HotKeys_HideBar("MultiBarBottomRight", "Name")
-  HotKeys_HideBar("MultiBarRight", "Name")
-  HotKeys_HideBar("MultiBarLeft", "Name")
-  HotKeys_MN_Hidden = true
+function HideHotKeys_MN_HideAll()
+  HideHotKeys_HideBar("Action", "Name")
+  HideHotKeys_HideBar("BonusAction", "Name")
+  HideHotKeys_HideBar("MultiBarBottomLeft", "Name")
+  HideHotKeys_HideBar("MultiBarBottomRight", "Name")
+  HideHotKeys_HideBar("MultiBarRight", "Name")
+  HideHotKeys_HideBar("MultiBarLeft", "Name")
+  HideHotKeys_MN_Hidden = true
 end
 
 
-function HotKeys_MN_ShowAll()
-  HotKeys_ShowBar("Action", "Name")
-  HotKeys_ShowBar("PetAction", "Name")
-  HotKeys_ShowBar("BonusAction", "Name")
-  HotKeys_ShowBar("MultiBarBottomLeft", "Name")
-  HotKeys_ShowBar("MultiBarBottomRight", "Name")
-  HotKeys_ShowBar("MultiBarRight", "Name")
-  HotKeys_ShowBar("MultiBarLeft", "Name")
-  HotKeys_MN_Hidden = false
+function HideHotKeys_MN_ShowAll()
+  HideHotKeys_ShowBar("Action", "Name")
+  HideHotKeys_ShowBar("PetAction", "Name")
+  HideHotKeys_ShowBar("BonusAction", "Name")
+  HideHotKeys_ShowBar("MultiBarBottomLeft", "Name")
+  HideHotKeys_ShowBar("MultiBarBottomRight", "Name")
+  HideHotKeys_ShowBar("MultiBarRight", "Name")
+  HideHotKeys_ShowBar("MultiBarLeft", "Name")
+  HideHotKeys_MN_Hidden = false
 end
 
 
-function HotKeys_MN_Slash()
-  if (HotKeys_MN_Hidden) then
-    HotKeys_MN_ShowAll()
+function HideHotKeys_MN_Slash()
+  if (HideHotKeys_MN_Hidden) then
+    HideHotKeys_MN_ShowAll()
   else
-    HotKeys_MN_HideAll()
+    HideHotKeys_MN_HideAll()
   end
 end
 
 
-function HotKeys_HideBar(b, f)
+function HideHotKeys_HideBar(b, f)
   for i = 1, 12 do
     local o = _G[b.."Button"..i..f]
     if (o) then
@@ -204,7 +203,7 @@ function HotKeys_HideBar(b, f)
 end
 
 
-function HotKeys_ShowBar(b, f)
+function HideHotKeys_ShowBar(b, f)
   for i = 1, 12 do
     local o = _G[b.."Button"..i..f]
     if (o) then
@@ -221,21 +220,21 @@ function HotKeys_ShowBar(b, f)
   end
 end
 
-HotKeys_Frame:SetScript("OnEvent", HotKeys_EventHandler)
-HotKeys_Frame:RegisterEvent("PLAYER_ENTERING_WORLD")
+HideHotKeys_Frame:SetScript("OnEvent", HideHotKeys_EventHandler)
+HideHotKeys_Frame:RegisterEvent("PLAYER_ENTERING_WORLD")
 
 -- register a hook for action button update functions
-hooksecurefunc(ActionBarActionButtonMixin, "UpdateHotkeys", HotKeys_ActionButton_UpdateHotkeys)
-hooksecurefunc(ActionBarActionButtonMixin, "Update", HotKeys_ActionButton_Update)
+hooksecurefunc(ActionBarActionButtonMixin, "UpdateHotkeys", HideHotKeys_ActionButton_UpdateHotkeys)
+hooksecurefunc(ActionBarActionButtonMixin, "Update", HideHotKeys_ActionButton_Update)
 
-SLASH_HotKeysHK1 = "/hk"
-SlashCmdList["HotKeysHK"] = HotKeys_HK_Slash
+SLASH_HIDEHOTKEYSHK1 = "/hk"
+SlashCmdList["HIDEHOTKEYSHK"] = HideHotKeys_HK_Slash
 
-SLASH_HotKeysMN1 = "/hm"
-SlashCmdList["HotKeysMN"] = HotKeys_MN_Slash
--- HotKeys finish
+SLASH_HIDEHOTKEYSMN1 = "/hm"
+SlashCmdList["HIDEHOTKEYSMN"] = HideHotKeys_MN_Slash
+-- code for HideHotKeys finish
 
--- HideBagsBar start
+-- code for HideBagsBar start
 local t = {
   "MicroButtonAndBagsBar",
 }
@@ -258,9 +257,9 @@ for _, v in ipairs(t) do
 	v:SetScript("OnLeave", hideFoo)
 	v:Hide(0)
 end
--- HideBagsBar finish
+-- code for HideBagsBar finish
 
--- HideMicroMenu start
+-- code for HideMicroMenu start
 local ignore
 
 local function setAlpha(b, a)
@@ -297,4 +296,4 @@ for _, v in ipairs(MICRO_BUTTONS) do
     v:HookScript("OnLeave", hideFoo)
     v:SetAlpha(0)
 end
--- HideMicroMenu finish
+-- code for HideMicroMenu finish
